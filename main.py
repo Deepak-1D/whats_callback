@@ -61,7 +61,7 @@ async def get_message(id:str, request: Request):
             #session.rollback()
     
         
-        requests.post("https://d4fe-103-130-204-187.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
+        requests.post("https://42bb-103-130-204-187.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
