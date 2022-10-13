@@ -48,6 +48,9 @@ async def get_message(id:str, request: Request):
 
     if len(status) == 4:
         print(first_response)
+        if status["messages"][0]["type"] in ["image", "document", "image"]:
+            recv_data = {"who_id":id, "Type": status["messages"][0]["type"], "content":status["messages"][0][["messages"][0]["type"]]}
+            print(recv_data)
         if status["messages"][0]["type"] == "text":
             recv_data = {"who_id":id , "Type":"message", "name":status["contacts"][0]["profile"]["name"], "in_number":status["messages"][0]["from"], "in_id":status["messages"][0]["id"], "message":{"body":status["messages"][0]["text"]["body"], "type": status["messages"][0]["type"]}}
         if (status["messages"][0]["type"] == "interactive") and (status["messages"][0]["interactive"]["type"]== "button_reply"):
