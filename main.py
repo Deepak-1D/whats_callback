@@ -39,7 +39,7 @@ async def get_message(id:str, request: Request):
                 status_data= {"Type": "status", "status":status["statuses"][0]["status"] , "id":status["statuses"][0]["id"], "send_to":status["statuses"][0]["recipient_id"], "message_type":status["statuses"][0]["conversation"]["origin"]["type"], "timestamp":repr(datetime.fromtimestamp(int(status["statuses"][0]["timestamp"])))}
                 #insert_data = tbl_sms_log(sms_log_response=str(jsonable_encoder(first_response)), whatsapp_msg_id=status_data["id"], whatsapp_status=status_data["status"] )
             except:
-                pass
+                print("some")
         #try:
             #session.add(insert_data)
             #session.commit()
