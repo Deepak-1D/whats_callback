@@ -49,7 +49,7 @@ async def get_message(id:str, request: Request):
     if len(status) == 4:
         print(first_response)
         if status["messages"][0]["type"] in ["image", "document", "image"]:
-            media_type = ["messages"][0]["type"]
+            media_type = status["messages"][0]["type"]
             recv_data = {"who_id":id, "Type": status["messages"][0]["type"], "content":status["messages"][0][media_type]}
             print(recv_data)
         if status["messages"][0]["type"] == "text":
