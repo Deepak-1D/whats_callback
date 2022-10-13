@@ -25,6 +25,7 @@ async def get_message(id:str, request: Request):
     print(id)
     first_response = await request.json()
     status = first_response["entry"][0]["changes"][0]["value"]
+    print(len(status))
     if len(status) == 3:
         if status["statuses"][0]["status"] == "read":
             status_data= {"Type": "status", "status":status["statuses"][0]["status"] , "id":status["statuses"][0]["id"], "send_to":status["statuses"][0]["recipient_id"], "timestamp":repr(datetime.fromtimestamp(int(status["statuses"][0]["timestamp"])))}
