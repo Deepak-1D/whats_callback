@@ -48,9 +48,9 @@ async def get_message(id:str, request: Request):
 
     if len(status) == 4:
         print(first_response)
-        if status["messages"][0]["type"] in ["image", "document", "image"]:
+        if status["messages"][0]["type"] in ["image", "document", "video"]:
             media_type = status["messages"][0]["type"]
-            recv_data = {"who_id":id, "Type": status["messages"][0]["type"], "content":status["messages"][0][media_type]}
+            recv_data = {"who_id":id, "Type": "media", "name":status["contacts"][0]["profile"]["name"], "in_number":status["messages"][0]["from"], "in_id":status["messages"][0]["id"], "content":status["messages"][0][media_type]}
             print(recv_data)
         if status["messages"][0]["type"] == "text":
             recv_data = {"who_id":id , "Type":"message", "name":status["contacts"][0]["profile"]["name"], "in_number":status["messages"][0]["from"], "in_id":status["messages"][0]["id"], "message":{"body":status["messages"][0]["text"]["body"], "type": status["messages"][0]["type"]}}
