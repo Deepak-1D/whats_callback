@@ -24,6 +24,7 @@ def callback(id: str, req: Request):
 async def get_message(id:str, request: Request):
     print(request)
     first_response = await request.json()
+    print(first_response)
     status = first_response["entry"][0]["changes"][0]["value"]
     print(len(status))
     if len(status) == 3:
