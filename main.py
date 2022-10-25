@@ -22,7 +22,7 @@ def callback(id: str, req: Request):
 
 @app.post("/services/whatsapp/callback/{id}")
 async def get_message(id:str, request: Request):
-    print(id)
+    print(request)
     first_response = await request.json()
     status = first_response["entry"][0]["changes"][0]["value"]
     print(len(status))
