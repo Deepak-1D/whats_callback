@@ -10,7 +10,7 @@ app = FastAPI()
 
 
 
-@app.get("/services/whatsapp/callback/{id}")
+@app.get("/{id}")
 def callback(id: str, req: Request):
     reqs_params = dict(req.query_params)
     try:
@@ -19,7 +19,7 @@ def callback(id: str, req: Request):
         return {"error": "code not found"}
     return int(code)
 
-@app.post("/services/whatsapp/callback/{id}")
+@app.post("/{id}")
 async def get_message(id:str, request: Request):
     print(request)
     first_response = await request.json()
