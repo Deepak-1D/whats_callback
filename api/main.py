@@ -1,8 +1,7 @@
 from fastapi import FastAPI, Request
-from datetime import date, datetime
-from fastapi import FastAPI
-import requests, os
-from fastapi.encoders import jsonable_encoder
+from datetime import datetime
+import requests
+from mangum import Mangum
 
 
 app = FastAPI()
@@ -71,3 +70,4 @@ async def get_message(id:str, request: Request):
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
+handler = Mangum(app=app)
