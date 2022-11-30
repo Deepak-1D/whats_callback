@@ -11,7 +11,7 @@ app = FastAPI()
 
 
 @app.get("/{id}")
-def callback(id: str, req: Request):
+async def callback(id: str, req: Request):
     reqs_params = dict(req.query_params)
     try:
         code = reqs_params["hub.challenge"]
@@ -70,4 +70,4 @@ async def get_message(id:str, request: Request):
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
-handler = Mangum(app=app, spec_version=2)
+handler = Mangum(app=app)
