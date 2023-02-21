@@ -64,8 +64,9 @@ async def get_message(id:str, request: Request):
             #session.commit()
         #except:
             #session.rollback()
-    retrun
+    
         requests.post("https://bef1-49-206-116-232.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
+        return
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
