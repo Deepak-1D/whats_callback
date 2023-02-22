@@ -1,17 +1,15 @@
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, BackgroundTasks
 from datetime import datetime
 import requests
-import threading
 from mangum import Mangum
 
 
 app = FastAPI()
 
 
-
 def send_req(dict_data):
     requests.post("https://ca86-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
-    
+
 
 @app.get("/{id}")
 async def callback(id: str, req: Request):
@@ -23,7 +21,7 @@ async def callback(id: str, req: Request):
     return int(code)
 
 @app.post("/{id}")
-async def get_message(id:str, request: Request):
+async def get_message(id:str, request: Request, bgtask:BackgroundTasks):
     print(request)
     first_response = await request.json()
     print(first_response)
@@ -67,8 +65,9 @@ async def get_message(id:str, request: Request):
             #session.commit()
         #except:
             #session.rollback()
-    
-        threading.Thread(target=send_req, args=(recv_data)).start()
+            
+        bgtask.add_task(send_req, recv_data)
+        requests.post("https://ca86-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         return
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
