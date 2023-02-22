@@ -67,7 +67,7 @@ async def get_message(id:str, request: Request, bgtask:BackgroundTasks):
             #session.rollback()
             
         bgtask.add_task(send_req, recv_data)
-        return
+        return {"status":sccues}
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
