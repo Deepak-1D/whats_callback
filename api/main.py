@@ -8,7 +8,7 @@ app = FastAPI()
 
 
 def send_req(dict_data):
-    requests.post("https://ca86-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
+    requests.post("https://a519-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
 
 
 @app.get("/{id}")
@@ -67,7 +67,6 @@ async def get_message(id:str, request: Request, bgtask:BackgroundTasks):
             #session.rollback()
             
         bgtask.add_task(send_req, recv_data)
-        requests.post("https://ca86-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         return
         #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
