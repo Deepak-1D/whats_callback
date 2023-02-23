@@ -8,7 +8,9 @@ app = FastAPI()
 
 
 def send_req(dict_data):
-    requests.post("http://sit.rigelsoft.com:8487/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
+    #requests.post("http://sit.rigelsoft.com:8487/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
+    requests.post("https://1651-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=dict_data )
+    
 
 
 @app.get("/{id}")
