@@ -70,7 +70,7 @@ async def get_message(id:str, request: Request, bgtask:BackgroundTasks):
             
         bgtask.add_task(send_req, recv_data)
         return {"status":"scuess"}
-        #requests.post("https://492f-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
+        #requests.post("https://34d5-35-207-202-6.in.ngrok.io/bot?verify_co=CPNrQTPdhwYTdCjGU6ub",json=recv_data )
         
    
 handler = Mangum(app=app)
